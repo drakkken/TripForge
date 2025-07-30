@@ -1,13 +1,14 @@
 "use client";
+
 import { login, logOut } from "@/lib/auth-actions";
 import { Session } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
-const Navbar = ({ session }: { session: Session | null }) => {
+export default function Navbar({ session }: { session: Session | null }) {
   return (
     <nav className="bg-white shadow-md py-4 border-b border-gray-200">
+      {" "}
       <div className="container mx-auto flex justify-between items-center px-6 lg:px-8">
         <Link href={"/"} className="flex items-center">
           <Image src={"/logo.png"} alt="logo" width={50} height={50} />
@@ -31,6 +32,7 @@ const Navbar = ({ session }: { session: Session | null }) => {
               >
                 Globe
               </Link>
+
               <button
                 className="flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white p-2 rounded-sm cursor-pointer"
                 onClick={logOut}
@@ -58,6 +60,4 @@ const Navbar = ({ session }: { session: Session | null }) => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

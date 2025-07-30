@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import TripDetailClient from "@/components/TripDetailClient";
 import { prisma } from "@/lib/prisma";
 import React from "react";
 
@@ -13,7 +14,11 @@ const page = async ({ params }: { params: Promise<{ tripId: string }> }) => {
     where: { id: tripId },
   });
 
-  return <div></div>;
+  if (!trip) {
+    return <div>Trip Not Found...</div>;
+  }
+
+  return <TripDetailClient trip={trip} />;
 };
 
 export default page;

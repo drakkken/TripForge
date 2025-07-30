@@ -23,7 +23,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   trip          Trip[]
-
+  
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
